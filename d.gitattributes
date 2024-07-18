@@ -1,0 +1,9 @@
+# Auto-detect text files and perform LF normalization
+* text=auto
+
+# Explicitly set the line endings for specific file types
+*.js eol=lf
+*.css eol=lf
+*.html eol=lf
+*.json eol=lf
+*.md eol=lf
