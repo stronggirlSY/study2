@@ -58,8 +58,7 @@ const handleEmailButtonPress = () => {
   return (
 
     //이름칸
-    <View style={styles.container}>
-
+    <KeyboardAwareScrollView style={styles.container}>
       <Text>이름:</Text>
       {isnameEditing ?
        (<TextInput 
@@ -119,7 +118,7 @@ const handleEmailButtonPress = () => {
         onPress={handleEmailButtonPress}
          />
       </View>
-    </View>
+    </KeyboardAwareScrollView>>
   );
 }
 
