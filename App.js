@@ -3,43 +3,48 @@ import {StyleSheet, Text, View, Button, TextInput} from 'react-native';
 
 const App =() => {
  
-  const [pressed, setPressed] = useState(false);
+  const [Namepressed, setNamePressed] = useState(false);
   const [name, setName] = useState('이서연');
   const [age, setAge] = useState('20');
   const [email, setEmail] = useState('leesyeon0310@gmail.com');
-  const [isEditing, setIsEditing] = useState(false);
+  const [isnameEditing, setIsNameEditing] = useState(false);
+  const [isageEditing, setIsageEditing] = useState(false);
 
-  const handlePress = () => {
-    setPressed(!pressed);
+
+  const handleNamePress = () => {
+    setNamePressed(!Namepressed);
   };
-  const handleEditToggle = () => {
-    setIsEditing(!isEditing);
+  const handleNameEditToggle = () => {
+    setIsNameEditing(!isnameEditing);
   };
 
-  const handleButtonPress = () => {
-    handlePress();
-    handleEditToggle(); 
+  const handleNameButtonPress = () => {
+    handleNamePress();
+    handleNameEditToggle(); 
   };
+
   return (
-    
+
+    //이름칸
     <View style={styles.container}>
+
       <Text>이름:</Text>
-      {isEditing ? (
+      {isnameEditing ? (
       <TextInput 
       style={styles.input}
       placeholder="이름을 입력하세요"
       value={name}
       onChangeText={setName}
-      onSubmitEditing={handleEditToggle}
-      />
+      onSubmitEditing={handleNameEditToggle}/>
       ) : (
         <Text style={styles.text}>{name}</Text>
       )} 
+
       <View style={styles.buttonContainer}>
         <Button
-        color="#2c2c2c"
-        title={pressed ? '수정' : '저장'}
-        onPress={handleButtonPress}
+        color= "#000000"
+        title={Namepressed ? '저장' : '수정'}
+        onPress={handleNameButtonPress}
          />
       </View>
     </View>
