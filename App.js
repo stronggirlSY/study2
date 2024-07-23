@@ -83,14 +83,14 @@ state = {
 
     //이름칸
    
-    <KeyboardAwareScrollView style={styles.container}>
+    <View style={styles.container}>
     <Text>이름:</Text>
     {isnameEditing ? // true -> 인풋필드 false ->텍스트 렌더링
      (<TextInput    // 인풋 필드창이 뜬다
     style={styles.input}
     placeholder="이름을 입력하세요" 
     value={name} // 입력 필드의 현재 값 설정
-    onChangeText={setName} // 인풋 필드창에 텍스트를 입력할때마다 입력하는 값을 name으로 만듦 (새로고침처럼)
+    onChangeText={setName} // 인풋 필드창에 텍스트를 입력할때마다 입력하는 값을 name으로 만듦 (새로고침처럼) -> 위로 올라가는거
     onSubmitEditing={handleNameEditToggle}/> // 종료하면 핸들네임에딧토글로 편집모드 종료 
     ) : (
       <Text style={styles.text}>{name}</Text>
@@ -143,9 +143,9 @@ state = {
          />
       </View>
 
-      // 일단 이까지가 버튼 칸 해결해야할것: 엑스포 찍었을때 오류나는거;(이건뷰를스크롤뷰로바꿔서.)
+      //일단 이까지가 버튼 칸 해결해야할것: 엑스포 찍었을때 오류나는거;(이건뷰를스크롤뷰로바꿔서.이건다시뷰로바꿔놓긴함..)
 
-      //여기서부터 취미...
+      //여기서부터 취미... 만들어야할것:입력필드 안에 쓴 게 밖으로 text로 구현되도록
 
       <Text>취미 목록</Text>
       <TextInput
@@ -164,7 +164,7 @@ state = {
 
 
 
-    </KeyboardAwareScrollView>
+    </View>
    );
 }
 
