@@ -1,5 +1,6 @@
-import React, {useState} from "react";
-import {StyleSheet, Text, View, Button, TextInput} from 'react-native';
+import React, {useState, Component} from "react";
+
+import {StyleSheet, Text, View, Button, TextInput, FlatList} from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const App =() => {
@@ -10,12 +11,18 @@ const App =() => {
   const [name, setName] = useState('이서연');
   const [age, setAge] = useState('20');
   const [email, setEmail] = useState('leesyeon0310@gmail.com');
+  const [text,setText] = useState('');
+  const [inputText,setInputText] = useState('');
 
- //네임프레스드랑 이즈네임에디팅중 1나만 있어도됨
-
-
-//->이거다필요없음;;;;;;;
-
+  state = {
+    text: '',
+    inputText: ''
+ 
+  };
+ 
+  submitBtn = () => {
+    setText(inputText);
+  };
 
 
  //취미
@@ -94,9 +101,15 @@ const App =() => {
           />
           </View>
         </View>
-
-        <Text>취미 목록</Text>
       </View>
+      <Text>취미 목록</Text>
+        <TextInput
+            style={styles.input}
+            onChangeText={(text) => {setInputText(text)}}
+            placeholder="취미를 입력해주세요."
+          />
+          <Button title="저장" onPress = {submitBtn} />
+          <Text style = {styles.text}>{text}</Text>
     </KeyboardAwareScrollView>
    );
 }
